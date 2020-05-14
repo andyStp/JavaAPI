@@ -1,0 +1,22 @@
+package io_File;
+
+import java.io.File;
+
+//遍历文件夹及其子目录的txt文件
+public class fileFactorial {
+    public static void main(String[] args) {
+        File f = new File("itheima/io/ab");
+        getTxt(f);
+    }
+
+    private static void getTxt(File f) {
+        File[] files=f.listFiles();
+        for (File file : files) {
+            if(file.isFile()&&file.getName().toLowerCase().endsWith(".txt")){
+                System.out.println(file.getName());
+            }else if(file.isDirectory()){
+                getTxt(file);
+            }
+        }
+    }
+}
